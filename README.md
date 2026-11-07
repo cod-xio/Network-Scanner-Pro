@@ -50,15 +50,12 @@ name: network-scanner-pro
 
 services:
   network-scanner-pro:
-    build:
-      context: .
-      dockerfile: Dockerfile
       args:
         VERSION: ${VERSION:-2.0.0}
         BUILD_DATE: ${BUILD_DATE:-}
-    image: network-scanner-pro:${VERSION:-2.0.0}
-    container_name: network-scanner-pro
-    restart: unless-stopped
+    image: codxio/network-scanner-pro:v2.0.0
+    container_name: Network-Scanner-Pro
+    restart: always
 
     # Ohne Host-Netzwerk sähe der Container nur Docker-interne Adressen, nie Ihr LAN.
     # Ein interner Reverse-Proxy ist nicht enthalten: Port NSP_PORT (Standard 8291) wird direkt bedient.
